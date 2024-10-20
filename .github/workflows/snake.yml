@@ -12,11 +12,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Generate Snake Animation
+        uses: platane/snk@v2
         with:
-          python-version: '3.x'
+          github_user: demon-rick-sanchez
+          svg_out: true
+          snake_color: '#000000'
+          output: 'github-contribution-grid-snake.svg'
 
-      - name: Run Snake Game
-        run: |
-          python snake.py
+      - name: Commit and push snake image
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Rick Sanchez 
+          author_email: techxyprojects@gmail.com
+          message: 'update snake animation'
